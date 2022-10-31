@@ -76,22 +76,6 @@ body {
   padding-right: 15px;
 }
 
-.section {
-  padding-top: 94px;
-  padding-bottom: 94px;
-}
-
-/* Шапка сайта */
-
-.header {
-  border-bottom: 1px solid var(--header-border-color);
-}
-
-.header-container {
-  display: flex;
-  align-items: center;
-}
-
 .logo {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
@@ -101,11 +85,73 @@ body {
   color: var(--logo-color);
 }
 
-.color-logo {
+.logo--color {
   color: var(--accent-color);
 }
 
-.nav {
+.button {
+  padding: 10px 32px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  text-align: center;
+  cursor: pointer;
+  color: var(--primary-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 4px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--button-active-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.block-social {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.block-social__item {
+  width: 44px;
+  height: 44px;
+}
+
+.block-social__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  fill: var(--icon-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.block-social__link:hover,
+.block-social__link:focus {
+  fill: var(--primary-color);
+  background-color: var(--accent-color);
+}
+
+/* Шапка сайта */
+
+.page-header {
+  border-bottom: 1px solid var(--header-border-color);
+}
+
+.page-header__container {
+  display: flex;
+  align-items: center;
+}
+
+.page-header__nav {
   margin-left: 93px;
 }
 
@@ -114,10 +160,10 @@ body {
   gap: 50px;
 }
 
-.nav-item {
+.nav-list__item {
 }
 
-.nav-link {
+.nav-list__link {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -131,9 +177,25 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-link:hover,
-.nav-link:focus {
+.nav-list__link:hover,
+.nav-list__link:focus {
   color: var(--accent-color);
+}
+
+.nav-list__link--active {
+  color: var(--accent-color);
+}
+
+.nav-list__link--active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 .contact-list {
@@ -142,10 +204,10 @@ body {
   gap: 30px;
 }
 
-.contact-item {
+.contact-list__item {
 }
 
-.contact-link {
+.contact-list__link {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -160,26 +222,10 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact-link:hover,
-.contact-link:focus {
+.contact-list__link:hover,
+.contact-list__link:focus {
   color: var(--accent-color);
   fill: var(--accent-color);
-}
-
-.active {
-  color: var(--accent-color);
-}
-
-.active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 4px;
-
-  border-radius: 2px;
-  background-color: var(--accent-color);
 }
 
 .main {
@@ -202,7 +248,7 @@ body {
   background-size: cover;
 }
 
-.hero-titel {
+.section-hero__titel {
   display: block;
   max-width: 696px;
   margin-left: auto;
@@ -218,39 +264,20 @@ body {
   color: var(--primary-color);
 }
 
-.hero-button {
+.section-hero__button {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px 32px;
-
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  text-align: center;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  color: var(--primary-color);
-  background-color: var(--accent-color);
-  border: 0;
-  border-radius: 4px;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 950ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hero-button:hover,
-.hero-button:focus {
-  background-color: var(--button-active-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Наші переваги */
 
 .section-advantage {
+  padding-top: 94px;
+  padding-bottom: 94px;
 }
 
-.visually-hidden {
+.section-advantage__titel-hidden {
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -263,16 +290,16 @@ body {
   margin: -1px;
 }
 
-.advantage-list {
+.section-advantage__list {
   display: flex;
   justify-content: space-between;
 }
 
-.advantage-item {
+.section-advantage__item {
   width: calc((100% - 90px) / 4);
 }
 
-.advantage-box-icon {
+.section-advantage__icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -282,7 +309,7 @@ body {
   background-color: var(--secondary-background-color);
 }
 
-.advantage-subtitel {
+.section-advantage__subtitel {
   margin-bottom: 10px;
 
   font-weight: 700;
@@ -293,7 +320,7 @@ body {
   color: var(--primary-titel-color);
 }
 
-.advantage-text {
+.section-advantage__text {
   line-height: 1.71;
   letter-spacing: 0.03em;
 }
@@ -302,9 +329,10 @@ body {
 
 .section-speciality {
   padding-top: 0;
+  padding-bottom: 94px;
 }
 
-.speciality-titel {
+.section-speciality__titel {
   margin-bottom: 50px;
 
   font-weight: 700;
@@ -315,23 +343,23 @@ body {
   color: var(--primary-titel-color);
 }
 
-.speciality-list {
+.section-speciality__list {
   display: flex;
   gap: 30px;
 }
 
-.speciality-item {
+.section-speciality__item {
   position: relative;
   overflow: hidden;
 }
 
-.speciality-image {
+.section-speciality__image {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-.speciality-overlay {
+.section-speciality__overlay {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -353,17 +381,19 @@ body {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.speciality-item:hover .speciality-overlay {
+.section-speciality__item:hover .section-speciality__overlay {
   transform: translateY(0);
 }
 
 /* Наша команда */
 
 .section-team {
+  padding-top: 94px;
+  padding-bottom: 94px;
   background-color: var(--secondary-background-color);
 }
 
-.team-titel {
+.section-team__titel {
   margin-bottom: 50px;
 
   font-weight: 700;
@@ -374,30 +404,30 @@ body {
   color: var(--primary-titel-color);
 }
 
-.team-list {
+.card-team {
   display: flex;
   gap: 30px;
 }
 
-.team-item {
+.card-team__item {
   background-color: var(--primary-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
 
-.team-image {
+.card-team__image {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-.team-desc {
+.card-team__desc {
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
-.team-subtitel {
+.card-team__name {
   margin-bottom: 10px;
 
   font-weight: 500;
@@ -408,7 +438,7 @@ body {
   color: var(--primary-titel-color);
 }
 
-.team-text {
+.card-team__position {
   margin-bottom: 16px;
 
   font-size: 16px;
@@ -417,42 +447,14 @@ body {
   text-align: center;
 }
 
-.team-icon-list {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  border-radius: 50%;
-}
-.team-icon-item {
-  width: 44px;
-  height: 44px;
-}
-
-.team-icon-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  fill: var(--icon-color);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.team-icon-link:hover,
-.team-icon-link:focus {
-  fill: var(--primary-color);
-  background-color: var(--accent-color);
-}
-
 /* Постійні клієнти */
 
 .section-clientage {
+  padding-top: 94px;
+  padding-bottom: 94px;
 }
-.container {
-}
-.clientage-titel {
+
+.section-clientage__titel {
   margin-bottom: 50px;
 
   font-weight: 700;
@@ -462,16 +464,16 @@ body {
   letter-spacing: 0.03em;
   color: var(--primary-titel-color);
 }
-.clientage-list {
+.block-client {
   display: flex;
   gap: 30px;
 }
-.clientage-item {
+.block-client__item {
   width: calc((100% - 150px) / 6);
   height: 92px;
   border-radius: 4px;
 }
-.clientage-link {
+.block-client__link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -483,47 +485,38 @@ body {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.clientage-link:hover,
-.clientage-link:focus {
+.block-client__link:hover,
+.block-client__link:focus {
   fill: var(--accent-color);
   border: 1px solid var(--accent-color);
 }
 
 /* Підвал сайта */
 
-.footer {
+.page-footer {
   padding-top: 60px;
   padding-bottom: 60px;
 
   background-color: var(--primary-background-color);
 }
 
-.footer-container {
+.page-footer__container {
   display: flex;
   align-items: baseline;
 }
 
-.footer-logo {
+.page-footer__logo {
   display: block;
   margin-bottom: 20px;
 
   color: var(--primary-color);
 }
 
-.address {
-}
-
-.footer-list {
-}
-
-.footer-item {
-}
-
-.footer-item:not(:last-child) {
+.block-address__item:not(:last-child) {
   margin-bottom: 9px;
 }
 
-.footer-llink-map {
+.block-address__link-map {
   font-style: normal;
   line-height: 1.71;
   letter-spacing: 0.03em;
@@ -531,12 +524,12 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-llink-map:hover,
-.footer-llink-map:focus {
+.block-address__link-map:hover,
+.block-address__link-map:focus {
   color: var(--accent-color);
 }
 
-.footer-llink-mail {
+.block-address__link-mail {
   font-style: normal;
   line-height: 1.71;
   letter-spacing: 0.03em;
@@ -544,12 +537,12 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-llink-mail:hover,
-.footer-llink-mail:focus {
+.block-address__link-mail:hover,
+.block-address__link-mail:focus {
   color: var(--accent-color);
 }
 
-.footer-llink-tel {
+.block-address__link-tel {
   font-style: normal;
   line-height: 1.71;
   letter-spacing: 0.03em;
@@ -557,15 +550,15 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-llink-tel:hover,
-.footer-llink-tel:focus {
+.block-address__link-tel:hover,
+.block-address__link-tel:focus {
   color: var(--accent-color);
 }
 
-.footer-social-box {
+.page-footer__social-box {
   margin-left: 88px;
 }
-.footer-social-subtitel {
+.page-footer__titel {
   margin-bottom: 20px;
 
   font-weight: 700;
@@ -576,37 +569,21 @@ body {
   color: var(--primary-color);
 }
 
-.footer-icon-list {
-  display: flex;
-  gap: 10px;
-}
-
-.footer-icon-item {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-}
-.footer-icon-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+.block-social__link--white-fill {
   fill: var(--primary-color);
   background: var(--footer-icon-color);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-icon-link:hover,
-.footer-icon-link:focus {
+.block-social__link--white-fill:hover,
+.block-social__link--white-fill:focus {
   background-color: var(--accent-color);
 }
 
-.form-footer {
+.page-footer__form {
   margin-left: auto;
 }
-.label-footer {
+.page-footer__label {
   display: block;
   margin-bottom: 20px;
 
@@ -618,7 +595,7 @@ body {
   color: var(--primary-color);
 }
 
-.input-footer {
+.page-footer__input {
   width: 358px;
   height: 50px;
   margin-right: 12px;
@@ -634,44 +611,25 @@ body {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input-footer::placeholder {
+.page-footer__input::placeholder {
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
 }
 
-.input-footer:focus {
+.page-footer__input:focus {
   border-color: var(--accent-color);
 }
 
-.button-footer {
+.page-footer__button {
   padding: 10px 28px;
-  text-align: center;
-  cursor: pointer;
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
-  color: var(--primary-color);
-  background-color: var(--accent-color);
-  border: none;
-  border-radius: 4px;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.button-footer-icon {
+
+.button--icon {
   vertical-align: middle;
   margin-left: 10px;
   fill: var(--primary-color);
-}
-
-.button-footer:hover,
-.button-footer:focus {
-  background-color: var(--button-active-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Сторінка портфоліо */
@@ -845,7 +803,7 @@ body {
   background-color: var(--primary-color);
 }
 
-.button-modal-close {
+.modal__button-close {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -864,12 +822,12 @@ body {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.button-modal-close:hover,
-.button-modal-close:focus {
+.modal__button-close:hover,
+.modal__button-close:focus {
   fill: var(--accent-color);
 }
 
-.titel-modal {
+.modal__titel {
   margin-bottom: 12px;
 
   font-weight: 700;
@@ -883,12 +841,7 @@ body {
 .form-modal {
 }
 
-.input-modal-box {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.label-modal {
+.form-modal__label {
   display: inline-block;
   margin-bottom: 4px;
 
@@ -898,8 +851,12 @@ body {
   color: var(--primary-text-color);
 }
 
+.form-modal__input-box {
+  position: relative;
+  margin-bottom: 10px;
+}
 
-.input-modal {
+.form-modal__input {
   width: 100%;
   height: 40px;
   padding: 12px 12px 12px 42px;
@@ -909,11 +866,11 @@ body {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input-modal:focus {
+.form-modal__input:focus {
   border-color: var(--accent-color);
 }
 
-.form-modal-icon {
+.form-modal__icon {
   position: absolute;
   top: 50%;
   left: 12px;
@@ -922,14 +879,11 @@ body {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input-modal:focus + .form-modal-icon {
+.form-modal__input:focus + .form-modal__icon {
   fill: var(--accent-color);
 }
 
-.label-modal.textarea {
-}
-
-.textarea-modal {
+.form-modal__textarea {
   width: 100%;
   height: 120px;
   margin-bottom: 20px;
@@ -942,25 +896,25 @@ body {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.textarea-modal:focus {
+.form-modal__textarea:focus {
   border-color: var(--accent-color);
 }
 
-.textarea-modal::placeholder {
+.form-modal__textarea::placeholder {
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.01em;
   color: var(--color-placeholder);
 }
 
-.modal-checkbox {
+.form-modal__checkbox {
   display: flex;
   align-items: center;
   gap: 8.38px;
   margin-bottom: 30px;
 }
 
-.input-checkbox {
+.form-modal__checkbox-input {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -971,7 +925,7 @@ body {
   overflow: hidden;
 }
 
-.icon-checkbox {
+.form-modal__checkbox-icon {
   width: 16px;
   height: 15px;
   cursor: pointer;
@@ -979,11 +933,11 @@ body {
   border-radius: 4px;
 }
 
-.input-checkbox:focus + .icon-checkbox {
+.form-modal__checkbox-input:focus + .form-modal__checkbox-icon {
   border-color: var(--accent-color);
 }
 
-.input-checkbox:checked + .icon-checkbox {
+.form-modal__checkbox-input:checked + .form-modal__checkbox-icon {
   background-color: var(--accent-color);
   background-image: url(../images/icon\ check.svg);
   background-position: center;
@@ -992,47 +946,27 @@ body {
   border-color: var(--accent-color);
 }
 
-.label-checkbox-text {
+.form-modal__checkbox-text {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
 }
 
-.modal-input-link {
+.form-modal__link {
   text-decoration: underline;
   color: var(--accent-color);
 }
 
-.modal-input-link:hover,
-.modal-input-link:focus {
+.form-modal__link:hover,
+.form-modal__link:focus {
   color: var(--button-active-color);
 }
 
-.button-modal-send {
+.form-modal__button {
   display: flex;
   align-items: center;
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
   padding: 10px 52px;
-  cursor: pointer;
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
-  color: var(--primary-color);
-  background-color: var(--accent-color);
-  border: none;
-  border-radius: 4px;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.button-modal-send:hover,
-.button-modal-send:focus {
-  background-color: var(--button-active-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
