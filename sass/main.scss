@@ -1,4 +1,4 @@
-// @import "../sass/base/normalize";
+@import "../sass/base/normalize";
 @import "./base/null";
 @import "./utils/variables.scss";
 
@@ -13,6 +13,7 @@
 @import "./components/card-team";
 @import "./components/block-social";
 @import "./components/section-clientage";
+@import "./components/filter";
 @import "./components/portfolio-card";
 @import "./components/page-footer";
 @import "./components/footer-form";
