@@ -1,6 +1,7 @@
-@import "../sass/base/normalize";
+@import "./base/normalize";
 @import "./base/nullstyle";
 @import "./utils/variables.scss";
+@import "./utils/font";
 
 @import "./components/general";
 @import "./components/logo";
